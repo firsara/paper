@@ -1,0 +1,151 @@
+@mixin clearfix {
+  *zoom: 1;
+
+  &:before,
+  &:after {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+
+@mixin respond-to($media) {
+  @if $media == device {
+    @media only screen and (max-device-width: 1024px) { @content; }
+  }
+  @else if $media == not-device {
+    @media only screen and (min-device-width: 1024px) { @content; }
+  }
+  @else if $media == small-screen {
+    @media only screen and (max-width: 1024px) { @content; }
+  }
+  @else if $media == tiny-mobile {
+    @media only screen and (max-width: $breakpoint-mobile / 2) { @content; }
+  }
+  @else if $media == mobile {
+    @media only screen and (max-width: $breakpoint-mobile - 1px) { @content; }
+  }
+  @else if $media == mobile-landscape {
+    @media only screen and (max-width: $breakpoint-mobile - 1px) and (orientation: landscape) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet - 1px) { @content; }
+  }
+  @else if $media == tablet-and-mobile {
+    @media only screen and (max-width: $breakpoint-tablet - 1px) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $breakpoint-mobile) { @content; }
+  }
+  @else if $media == desktop-only {
+    @media only screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-wide - 1px) { @content; }
+  }
+  @else if $media == wide {
+    @media (min-width: $breakpoint-wide) { @content; }
+  }
+  @else if $media == retina {
+    @media (min-resolution: 2dppx), (min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (-webkit-min-device-pixel-ratio: 2) { @content; }
+  }
+}
+
+
+
+@mixin grid($columns, $width, $gutter, $name) {
+  width: $columns * ($width + $gutter) - $gutter * 1px;
+  
+  .row {
+    margin-left: $gutter * -1px;
+  }
+
+  @for $i from 1 through $columns {
+    .span#{$i},
+    [data-span-#{$name}="#{$i}"],
+    [data-span-#{$name}="span#{$i}"] {
+      margin-left: $gutter * 1px;
+      width: ($width + $gutter) * $i - $gutter * 1px;
+    }
+  }
+}
+
+@mixin grid-fluid($columns, $width, $gutter, $name) {
+  $gutter: $gutter / 2;
+
+  $layout-width: $columns * ($width + $gutter);
+  $layout-margin-width: $layout-width + $gutter * 2;
+  $percent-margin: $gutter / $layout-margin-width;
+
+  @if $name == desktop {
+    .row {
+      width: $percent-margin * 200% + 100%;
+      margin-left: $percent-margin * -100%;
+    }
+
+    [class*="span"] {
+      margin-left: $percent-margin * 100%;
+      margin-right: $percent-margin * 100%;
+    }
+  }
+
+
+  @for $i from 1 through $columns {
+    @if $name == desktop {
+      .span#{$i},
+      [data-span-#{$name}="#{$i}"],
+      [data-span-#{$name}="span#{$i}"] {
+        width: (($i / $columns) - 2 * $percent-margin) * 100%;
+        padding: 0;
+        //display: block;
+        float: left;
+      }
+
+      .offset#{$i},
+      [data-offset-#{$name}="#{$i}"],
+      [data-offset-#{$name}="offset#{$i}"] {
+        $m: $percent-margin * 2 + (($i / $columns) - 2 * $percent-margin + $percent-margin * 3) * 100%;
+        margin-left: $m;
+      }
+    }
+    @else {
+      [data-span-#{$name}="#{$i}"],
+      [data-span-#{$name}="span#{$i}"] {
+        width: (($i / $columns) - 2 * $percent-margin) * 100%;
+        padding: 0;
+        //display: block;
+        float: left;
+      }
+
+      [data-offset-#{$name}="#{$i}"],
+      [data-offset-#{$name}="offset#{$i}"] {
+        $m: $percent-margin * 2 + (($i / $columns) - 2 * $percent-margin + $percent-margin * 3) * 100%;
+        margin-left: $m;
+      }
+    }
+  }
+
+  @if $name == desktop {
+    .span0 { width: 0; }
+  }
+
+  [data-span-#{$name}="0"],
+  [data-span-#{$name}="span0"] {
+    width: 0;
+  }
+
+
+  @if $name == desktop {
+    .offset0 {
+      margin-left: $percent-margin * 100%;
+      margin-right: $percent-margin * 100%;
+    }
+  }
+
+  [data-offset-#{$name}="0"],
+  [data-offset-#{$name}="offset0"] {
+    margin-left: $percent-margin * 100%;
+    margin-right: $percent-margin * 100%;
+  }
+}

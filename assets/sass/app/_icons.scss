@@ -1,0 +1,77 @@
+@mixin retina-sprite($folder) {
+  $sprites: sprite-map("#{$folder}/*.png"); // Generates a sprite containing every icon in the supplied folder.
+  $sprites-2x: sprite-map("#{$folder}@2x/*.png"); // Generates a second sprite containing every icon @2x resolution.
+
+  .#{$folder} {
+    background-image: sprite-url($sprites);
+    background-repeat: no-repeat;
+    @include inline-block;
+    text-indent: -9999px;
+  }
+
+  @each $sprite in sprite-names($sprites) {
+    $width: image-width(sprite-file($sprites, $sprite));
+    $height: image-height(sprite-file($sprites, $sprite));
+
+    .#{$folder}-#{$sprite} {
+      background-position: sprite-position($sprites, $sprite);
+      width: $width;
+      height: $height;
+
+      &.centered {
+        margin-left: 0 - $width / 2;
+        margin-top: floor(0 - $height / 2);
+      }
+    }
+  }
+
+  @media (min-resolution: 2dppx), (min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 2/1), (-webkit-min-device-pixel-ratio: 2) {
+    $sprite-url: sprite-url($sprites-2x);
+    $sprite-path: sprite-path($sprites-2x);
+    $sprite-width: image-width($sprite-path);
+    $sprite-height: image-height($sprite-path);
+
+    @each $sprite in sprite-names($sprites-2x) {
+      $position: sprite-position($sprites-2x, $sprite);
+
+      .#{$folder}-#{$sprite} {
+        background-position: (nth($position, 1) / 2) (nth($position, 2) / 2);
+        background-image: $sprite-url;
+        @include background-size(($sprite-width / 2) ($sprite-height / 2));
+      }
+    }
+  }
+}
+
+
+
+.icon {
+  display: block;
+  display: inline-block;
+  font-size: 0;
+  line-height: 0;
+  background-position: center center;
+  background-repeat: no-repeat;
+  text-indent: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  
+  &.centered {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
+
+  &.aligned-right {
+    left: auto;
+    right: 0;
+  }
+
+  &.aligned-left {
+    left: 0;
+    right: auto;
+  }
+}
+
+@include retina-sprite(icon);

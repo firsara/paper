@@ -1,0 +1,61 @@
+body,
+input,
+textarea,
+select,
+button {
+  font-family: $font-family;
+  color: $background;
+  font-size: $font-size;
+}
+
+::-moz-selection {
+  color: $background;
+  background: $color;
+  text-shadow: none;
+}
+
+::selection {
+  color: $background;
+  background: $color;
+  text-shadow: none;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+
+strong,
+b,
+.strong,
+.bold {
+  font-weight: bold;
+}
+
+
+em,
+i,
+.emphasised,
+.italic {
+  font-style: italic;
+}
+
+
+a {
+  color: $color;
+  text-decoration: none;
+  @include transition(color 0.2s ease);
+
+  &:hover {
+    color: $hover;
+  }
+}
+
+
+small {
+  font-size: 0.75em;
+}

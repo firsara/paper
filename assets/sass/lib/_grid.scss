@@ -1,0 +1,95 @@
+@import "grid/config";
+@import "grid/mixins";
+
+// Grid Container
+.container-fluid {
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 1600px;
+  padding: 0 5%;
+
+  &,
+  .row {
+    @include clearfix();
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: auto;
+}
+
+[class*="span"] {
+  padding: 0;
+  min-height: 1px;
+  display: block;
+  float: left;
+}
+
+
+.container       { @include grid($columns, $width, $gutter, desktop); }
+.container-fluid { @include grid-fluid($columns, $width, $gutter, desktop); }
+
+.wide-only,
+.tablet-only,
+.phone-only,
+.mobile-only {
+  display: none;
+}
+
+.hidden-desktop {
+  display: none;
+}
+
+@include respond-to(wide) {
+  .container       { @include grid($columns, $width-wide, $gutter-wide, wide); }
+  .container-fluid {
+    @include grid-fluid($columns, $width, $gutter, wide);
+  }
+
+  .hidden-wide {
+    display: none;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .wide-only {
+    display: inherit;
+  }
+}
+
+@include respond-to(tablet) {
+  .container       { @include grid($columns, $width-tablet, $gutter-tablet, tablet); }
+  .container-fluid {
+    @include grid-fluid($columns, $width, $gutter, tablet);
+  }
+
+  .hidden-tablet {
+    display: none;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .tablet-only {
+    display: inherit;
+  }
+}
+
+@include respond-to(mobile) {
+  .container,
+  .container-fluid {
+    @include grid-fluid($columns, $width, $gutter, mobile);
+  }
+
+  .hidden-mobile,
+  .hidden-phone {
+    display: none;
+  }
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: inherit;
+  }
+}

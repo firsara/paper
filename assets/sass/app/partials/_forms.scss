@@ -1,0 +1,275 @@
+.errorbox {
+  display: none;
+}
+
+
+input,
+textarea {
+  background: #fff;
+  color: $background;
+  @include box-sizing(border-box);
+  width: 100%;
+  padding: 19px;
+  font-size: 15px;
+  resize: none;
+  @include border-radius(0);
+
+  border: 1px solid #fff;
+
+  &.error {
+    border: 1px solid red;
+
+    &::-webkit-input-placeholder { color:#f00; }
+    &::-moz-placeholder { color:#f00; } /* firefox 19+ */
+    &:-ms-input-placeholder { color:#f00; } /* ie */
+    &:-moz-placeholder { color:#f00; }
+  }
+}
+
+
+
+input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  text-align: left;
+  //text-decoration: underline;
+  padding: 0;
+  text-transform: uppercase;
+  //font-size: 2em;
+  font-size: 19px;
+  margin-top: -7px;
+
+  @include respond-to(mobile) {
+    margin-top: 10px;
+  }
+  
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+.comments-outer {
+  background: $grey;
+  color: $background;
+
+  a {
+    color: $background;
+  }
+}
+
+.comments-inner {
+  position: relative;
+
+  .arrow {
+    top: 0;
+    border-top-color: #fff !important;
+  }
+}
+
+.respond {
+  padding: 60px 0;
+
+  @include respond-to(mobile) {
+    padding: 30px 0;
+  }
+
+  .reply-title {
+    font-size: 19px;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+  }
+
+  .logged-in-as {
+    margin-bottom: 20px;
+
+    + .comment-form-comment label[for="comment"] {
+      display: none;
+    }
+  }
+
+  .comment-notes {
+    margin-top: 1.75em;
+
+    @include respond-to(mobile) {
+      line-height: 1.4em;
+    }
+  }
+
+  .comment-form-author {
+    width: auto;
+  }
+
+  .comment-form-email,
+  .comment-form-url {
+    float: left;
+    width: 48.75%;
+    margin-left: 2.5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .comment-form-email {
+    margin-left: 0;
+  }
+
+  .comment-form-author,
+  .comment-form-email,
+  .comment-form-url,
+  .comment-form-comment {
+    margin-top: 0;
+    margin-bottom: 2.5%;
+  }
+
+  .form-allowed-tags {
+    margin: 1em 0;
+    line-height: 1.5em;
+    display: none;
+
+    code {
+      display: block;
+      font-size: 0.9em;
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 1em;
+    display: none;
+  }
+}
+
+
+
+.commentlist-outer {
+  padding-bottom: 70px;
+
+  @include respond-to(mobile) {
+    padding-bottom: 40px;
+  }
+
+  .comments ol {
+    margin-top: 0;
+  }
+}
+
+.comments {
+  h2 {
+    margin-top: 60px;
+    display: none;
+  }
+
+  li h2 {
+    margin-top: 0;
+  }
+
+  ol {
+    margin-top: 70px;
+
+    @include respond-to(mobile) {
+      margin-top: 40px;
+    }
+  }
+
+  li {
+    border-left: none;
+    border-right: none;
+    margin-top: 2px;
+    padding: 30px;
+    background: $grey;
+    @include clearfix();
+    position: relative;
+
+    .avatar {
+      float: left;
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin-right: 10px;
+      display: none;
+    }
+    time a {
+      color: $background;
+    }
+
+    time {
+      display: none;
+    }
+
+    :last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      font-size: 15px;
+      line-height: 27px;
+    }
+
+    .comment-text {
+      :last-child {
+        margin-bottom: 0;
+      }
+
+      margin-bottom: 15px;
+    }
+
+
+    .arrow {
+      left: 20px;
+    }
+
+    .arrow-bottom {
+      border-left: 15px + 2px solid transparent;
+      border-right: 15px + 2px solid transparent;
+      border-top: 15px + 2px solid white;
+      border-top-color: #fff;
+      top: auto;
+      left: 18px;
+      top: -1px;
+      //bottom: -18px;
+      z-index: 3;
+    }
+
+    .arrow-top {
+      border-top-color: $grey;
+      top: -2px;
+      //bottom: -15px;
+      z-index: 4;
+    }
+
+    &:first-child {
+      .arrow-top,
+      .arrow-bottom {
+        display: none;
+      }
+    }
+
+    h4,
+    h5 {
+      float: left;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 1em;
+      margin-bottom: 0;
+
+      &,
+      a {
+        color: $background;
+      }
+    }
+  }
+}
+
+
+
+.show-more {
+  display: block;
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  display: none;
+}

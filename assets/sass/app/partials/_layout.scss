@@ -1,0 +1,129 @@
+body {
+  overflow-y: scroll;
+}
+
+
+body.admin-bar {
+  #header {
+    top: 28px;
+  }
+}
+
+.container-fluid {
+  max-width: 1200px;
+}
+
+#header,
+#footer {
+  background: $background;
+  padding: 10px 0;
+
+  .logo {
+    margin: 0;
+
+    a {
+      padding: 20px;
+      margin-left: -20px;
+
+      @include respond-to(mobile) {
+        padding: 10px;
+        margin-left: -10px;
+      }
+    }
+  }
+
+  a {
+    display: block;
+
+    @include transition(all 300ms ease);
+    opacity: $action-opacity;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .close {
+    padding: 26px;
+    margin-right: -26px;
+
+    @include respond-to(mobile) {
+      padding: 16px;
+      margin-right: -16px;
+    }
+  }
+}
+
+
+#header {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 0 11px;
+
+  @media screen and (min-height: 800px) {
+    position: fixed;
+  }
+
+  @include respond-to(mobile) {
+    position: absolute;
+    padding: 0;
+  }
+
+  @include respond-to(mobile-landscape) {
+    position: absolute;
+  }
+}
+
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 0 0;
+
+  //height: 70px;
+
+  height: 13px;
+  padding-bottom: 30px;
+
+  p {
+    font-size: 13px;
+    color: #fff;
+    line-height: 1em;
+
+    a {
+      color: #fff;
+    }
+  }
+
+  @include respond-to(mobile) {
+    position: relative;
+    height: auto;
+    padding: 20px 0 10px;
+
+    .float-left,
+    .float-right {
+      float: none;
+      margin-bottom: 1em;
+      line-height: 1.4em;
+    }
+  }
+}
+
+
+#content {
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+  //margin-bottom: 100px;
+  margin-bottom: 73px;
+
+  @include respond-to(mobile) {
+    margin-bottom: 0;
+    margin-top: 59px;
+  }
+}

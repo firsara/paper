@@ -1,0 +1,759 @@
+article {
+  position: relative;
+
+  .text > :last-child {
+    margin-bottom: 0;
+  }
+
+  &:hover {
+    z-index: 3;
+  }
+
+  header {
+    background: $color;
+    padding: 55px 0;
+
+    @include respond-to(mobile) {
+      padding: 30px 0;
+    }
+
+    color: $background;
+    z-index: 3;
+    position: relative;
+
+
+
+    .title {
+      font-size: 40px;
+      line-height: 44px;
+      font-weight: bold;
+      margin: 0;
+
+      @include respond-to(mobile) {
+        margin-top: 1em;
+        margin-bottom: 0.1em;
+      }
+    }
+
+    .day {
+      font-size: 55px;
+      font-weight: 100;
+      display: block;
+    }
+
+    .month {
+      font-size: 25px;
+      font-weight: bold;
+      display: block;
+      margin-left: 0.1em;
+      margin-top: 0.15em;
+    }
+
+
+    .arrow-adjacent-post {
+      display: block;
+      padding: 50px;
+      margin-top: -50px;
+      position: absolute;
+      top: 50%;
+    }
+
+    .arrow-prev-post {
+      left: 3%;
+    }
+
+    .arrow-next-post {
+      right: 3%;
+    }
+  }
+
+  &.blue header {
+    background: $blue;
+  }
+
+  &.blue {
+    &,
+    * {
+      ::-moz-selection {
+        color: $color;
+        background: $blue;
+      }
+    }
+
+    &,
+    * {
+      ::selection {
+        color: $color;
+        background: $blue;
+      }
+    }
+  }
+
+
+  &.green header {
+    background: $green;
+  }
+
+  &.green {
+    &,
+    * {
+      ::-moz-selection {
+        color: $color;
+        background: $green;
+      }
+    }
+
+    &,
+    * {
+      ::selection {
+        color: $color;
+        background: $green;
+      }
+    }
+  }
+
+
+  &.yellow header {
+    background: $yellow;
+  }
+
+  &.yellow {
+    &,
+    * {
+      ::-moz-selection {
+        color: $color;
+        background: $yellow;
+      }
+    }
+
+    &,
+    * {
+      ::selection {
+        color: $color;
+        background: $yellow;
+      }
+    }
+  }
+
+
+  &.white header {
+    background: $white;
+  }
+
+  &.white {
+    &,
+    * {
+      ::-moz-selection {
+        color: #fff;
+        background: $background;
+      }
+    }
+
+    &,
+    * {
+      ::selection {
+        color: #fff;
+        background: $background;
+      }
+    }
+  }
+
+
+  &.grey header {
+    background: $background;
+    color: #fff;
+  }
+
+  &.grey {
+    &,
+    * {
+      ::-moz-selection {
+        color: #fff;
+        background: $background;
+      }
+    }
+
+
+    &,
+    * {
+      ::selection {
+        color: #fff;
+        background: $background;
+      }
+    }
+  }
+
+
+  .arrow {
+    position: absolute;
+    top: 15px;
+    left: 1.16279%;
+
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    
+    border-top: 15px solid $color;
+  }
+
+
+  &.grey .arrow {
+    border-top-color: $background;
+  }
+
+  &.white .arrow {
+    border-top-color: $white;
+  }
+
+  &.blue .arrow {
+    border-top-color: $blue;
+  }
+
+  &.green .arrow {
+    border-top-color: $green;
+  }
+
+  &.yellow .arrow {
+    border-top-color: $yellow;
+  }
+
+
+
+  .status {
+    position: relative;
+
+    .title,
+    .icon {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include transition(all 300ms ease);
+      @include ease-out-back;
+    }
+
+    .title {
+      font-size: 25px;
+      line-height: 1em;
+      margin: 0;
+      display: block;
+
+      top: 83px - 25px;
+    }
+
+    .icon {
+      float: right;
+      opacity: 0;
+      top: 83px - 31px + 10px;
+    }
+
+
+    opacity: 1;
+    @include transition(all 300ms ease);
+
+    .opened {
+      opacity: 0;
+      display: none\9;
+    }
+
+    .opened,
+    .closed {
+      position: absolute;
+      top: 0;
+      right: 0;
+      @include transition(all 300ms ease);
+    }
+  }
+
+
+  &.open {
+    .status {
+      .closed {
+        display: none\9;
+        opacity: 0;
+      }
+      .opened {
+        display: block;
+        opacity: 1;
+      }
+
+      .title {
+        top: 0;
+      }
+
+      .icon {
+        top: 0 - 10px;
+      }
+    }
+  }
+
+  header:hover .status {
+    opacity: 1;
+
+    .icon {
+      opacity: 1;
+      top: 83px - 31px;
+    }
+
+    .title {
+      top: 0;
+    }
+  }
+
+  &.open header:hover .status {
+    .title {
+      top: 83px - 25px;
+    }
+    .icon {
+      top: 0;
+    }
+  }
+
+
+
+
+  header.fixed {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+
+    + .wrapper {
+      position: relative;
+      padding-top: 160px;
+    }
+  }
+
+
+  .actions-outer {
+    background: #fff;
+    padding: 50px 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+
+    @include respond-to(mobile) {
+      padding: 25px 0;
+    }
+
+    &,
+    a {
+      color: $background;
+      font-size: 19px;
+      font-weight: bold;
+    }
+
+    .like {
+      position: relative;
+      z-index: 30;
+      margin-top: -42px;
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+    }
+
+    .share {
+      position: relative;
+      display: inline-block;
+    }
+
+    .share .holder {
+      position: absolute;
+      display: block;
+      top: -4px;
+      left: 0;
+      z-index: 100;
+      display: none\9;
+      opacity: 0;
+      height: 1px;
+      overflow: hidden;
+      //@include transition(all 300ms ease, height 1s ease);
+      @include transition(all 50ms ease);
+      padding-top: 30px;
+
+      .arrow {
+        top: 25px;
+        left: 16px;
+        border-top: none;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        
+        border-bottom: 5px solid #426da7;
+      }
+
+      .share-element {
+        width: 185px - 30px;
+        padding: 15px;
+        font-size: 19px;
+        font-weight: bold;
+        background: $grey;
+        margin-bottom: 1px;
+        color: #fff;
+      }
+
+      .facebook {
+        background: #426da7;
+      }
+
+      .twitter {
+        background: #00d9fd;
+      }
+    }
+
+    .share:hover .holder {
+      opacity: 1;
+      height: auto;
+      display: block;
+      overflow: visible;
+      //@include transition(all 300ms ease);
+    }
+  }
+}
+
+
+
+
+.article-content {
+  .actions-outer {
+    padding-top: 0;
+    padding-bottom: 70px;
+
+    @include respond-to(mobile) {
+      padding-bottom: 45px;
+    }
+  }
+}
+
+
+
+
+.posts article {
+  //height: 88px + 100px;
+
+  header {
+    //height: 88px;
+    position: relative;
+    @include transition(all 250ms linear);
+    @include ease-in-out-quad;
+    //@include ease-out-back;
+    
+    border-top: 0 solid #fff;
+    border-bottom: 0 solid #fff;
+
+    z-index: 5;
+
+    &:hover {
+    }
+  }
+
+  &.open {
+    height: auto;
+
+    header {
+      z-index: 3 !important;
+    }
+  }
+
+  header:hover,
+  &.open header,
+  &.open header:hover {
+    //z-index: 9;
+    padding: 70px 0;
+    margin-top: -30px;
+    top: 15px;
+
+    .overlay {
+      opacity: 0;
+    }
+    
+    //border-top: 10px solid #fff;
+    //border-bottom: 10px solid #fff;
+
+    @include respond-to(mobile) {
+      padding: 55px 0;
+    }
+  }
+
+  header:hover {
+    z-index: 10 !important;
+  }
+
+  header .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(100, 100, 100, 0.3);
+    opacity: 0;
+    @include transition(all 250ms linear);
+    @include ease-in-out-quad;
+  }
+
+  .wrapper {
+    display: none;
+  }
+}
+
+
+.posts {
+  background: $background;
+
+  &:hover {
+    header {
+      //color: #333;
+
+      .overlay {
+        opacity: 1;
+      }
+    }
+  }
+
+  li {
+    position: relative;
+
+    &:hover {
+      z-index: 10;
+    }
+
+    &.is_open {
+      position: static;
+      z-index: 8;
+    }
+  }
+
+  .content {
+    padding-top: 15px + 70px;
+
+    @include respond-to(mobile) {
+      padding-top: 45px + 15px;
+    }
+  }
+}
+
+
+
+
+.wrapper {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.article-content {
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+
+.content {
+  background: #fff;
+  color: $background;
+  padding: 60px 0 70px;
+
+  @include respond-to(mobile) {
+    padding: 30px 0 40px;
+  }
+
+  font-size: 19px;
+  line-height: 35px;
+
+  position: relative;
+  z-index: 1;
+
+  //width: 75%;
+  //max-width: 900px;
+  //float: right;
+  //@include clearfix();
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5em;
+    line-height: 44 / 40 * 1em;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: 400;
+  }
+
+  h4 {
+    font-size: 1.3em;
+    font-weight: 600;
+  }
+
+  h5 {
+    font-size: 1.3em;
+    font-weight: 400;
+  }
+
+  h6 {
+    font-size: 1.3em;
+    font-weight: 300;
+  }
+
+  p {
+    //margin-bottom: 1em;
+    margin-bottom: 1.5em;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 1.1em;
+    list-style-type: square;
+    //margin-bottom: 1em;
+    margin-bottom: 1.5em;
+
+    @include respond-to(mobile) {
+      padding-left: 1em;
+    }
+
+    li {
+      //list-style-position: inside;
+    }
+
+    ul {
+      padding-left: 0.5em;
+      padding-bottom: 0.5em;
+    }
+  }
+
+  a {
+    color: inherit;
+    text-decoration: underline;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .Apple-style-span {
+    display: inherit;
+    float: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+
+
+.responsive-image {
+  display: block;
+}
+
+
+img.size-large,
+.responsive-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 50px 0;
+  margin-left: -26.18605%;
+  width: 100 + 26.18605 * 1%;
+
+  margin-left: -38.85%;
+  width: 100 + 38.85 * 1%;
+
+  @include respond-to(mobile) {
+    width: 100%;
+    margin: 25px 0;
+    margin-left: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.single {
+  .arrow {
+    top: 0;
+  }
+
+  @media screen and (min-height: 800px) {
+    .article-content {
+      margin-bottom: 400px;
+
+      @include respond-to(mobile) {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .comments-outer {
+      position: fixed;
+      //bottom: 100px;
+      bottom: 73px;
+      left: 0;
+      width: 100%;
+
+      @include respond-to(mobile) {
+        position: relative;
+        bottom: 0;
+      }
+    }
+  }
+
+  @include respond-to(mobile) {
+    article header {
+      display: none;
+    }
+
+    article .main-arrow {
+      display: none;
+    }
+  }
+}
+
+@media screen and (min-height: 800px) {
+  article.scroll {
+    .wrapper {
+      //margin-bottom: -73px;
+    }
+    .article-content {
+      margin-bottom: 400px;
+
+      @include respond-to(mobile) {
+        margin-bottom: 0 !important;
+      }
+    }
+
+    .comments-outer {
+      position: fixed;
+      //bottom: 100px;
+      bottom: 73px;
+      left: 0;
+      width: 100%;
+
+      @include respond-to(mobile) {
+        position: relative;
+        bottom: 0;
+      }
+    }
+  }
+}
