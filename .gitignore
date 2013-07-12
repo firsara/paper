@@ -2,3 +2,4 @@
 .sass-cache
 config.rb
 parts/shared/html-header.php
+html-header.php
