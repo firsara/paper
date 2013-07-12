@@ -33,8 +33,8 @@ function crop_image($path = '', $type = '', $retina = false)
   $retina = true;
   $size = getimagesize(ROOT.$filename);
 
-  $image_width = $size[0] / 1.5;
-  $image_height = $size[1] / 1.5;
+  $image_width = round($size[0] / 1.5);
+  $image_height = round($size[1] / 1.5);
   
   switch ($type)
   {
@@ -58,7 +58,7 @@ function crop_image($path = '', $type = '', $retina = false)
 
   $new_filename = str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $path));
 
-  $new_filename_path = str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $filename));
+  $new_filename_path = ROOT.str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $filename));
 
   $recreate = false;
 
@@ -102,5 +102,5 @@ if ( !isset($wp_did_header) ) {
 
 $source = crop_image($file, $type, $is_retina);
 
-header('Location: '.$source);
+header('Location: '.get_bloginfo('url').'/'.$source);
 exit();
