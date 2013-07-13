@@ -24,7 +24,7 @@
 
     <div class="container-fluid">
       <div class="row">
-        <time class="span3" datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate>
+        <time class="span3" datetime="<?php the_time( 'Y-m-d' ); ?>">
           <?php /*
           <?php the_date(); ?> <?php the_time(); ?>
           */ ?>

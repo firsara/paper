@@ -25,7 +25,7 @@
                &nbsp; 
               .
                &nbsp; 
-              <span class="share" href="<?php echo bloginfo('url'); ?>">
+              <span class="share">
                 <a class="action uppercase" href="<?php echo bloginfo('url'); ?>">share</a>
                 <span class="holder">
                   <span class="arrow"></span>
