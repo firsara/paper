@@ -1659,6 +1659,7 @@ article {
   display: block; }
 
 img.size-large,
+img.size-full,
 .responsive-image img {
   width: 100%;
   height: auto;
@@ -1670,6 +1671,7 @@ img.size-large,
   width: 138.85%; }
   @media only screen and (max-width: 767px) {
     img.size-large,
+    img.size-full,
     .responsive-image img {
       width: 100%;
       margin: 25px 0;

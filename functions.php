@@ -215,9 +215,9 @@ define('BLOGINFO_BASE_URL', get_bloginfo('template_url').'/');
 
 function fibb_fetch_responsive_images($content)
 {
-	preg_match("/<img[^>]+\>/i", $content, $results);
+	preg_match_all("/<img[^>]+\>/i", $content, $results);
 
-	foreach ($results as $result)
+	foreach (@$results[0] as $result)
 	{
 		if (strpos($result, 'wp-content/') !== false)
 		{
