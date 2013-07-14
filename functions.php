@@ -2,7 +2,6 @@
 
 	require_once( 'external/fibb-utilities.php' );
 
-	add_theme_support('post-thumbnails');
 	add_action( 'wp_enqueue_scripts', 'fibb_script_enqueuer' );
 	add_filter( 'body_class', array( 'Fibb_Utilities', 'add_slug_to_body_class' ) );
 
