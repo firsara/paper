@@ -678,6 +678,12 @@ img.size-full,
     margin: 25px 0;
     margin-left: 0;
   }
+
+  @include respond-to(tablet) {
+    width: 100%;
+    margin: 25px 0;
+    margin-left: 0;
+  }
 }
 
 

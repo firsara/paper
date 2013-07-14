@@ -1473,6 +1473,13 @@ img.size-full,
       width: 100%;
       margin: 25px 0;
       margin-left: 0; } }
+  @media only screen and (min-width: 768px) and (max-width: 979px) {
+    img.size-large,
+    img.size-full,
+    .responsive-image img {
+      width: 100%;
+      margin: 25px 0;
+      margin-left: 0; } }
 
 .single .arrow {
   top: 0; }
