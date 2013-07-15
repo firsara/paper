@@ -188,17 +188,35 @@
     });
 
 
-    $('.home #header .close, a[href="http://madebyfibb.com"]').click(function(e){
-      e.preventDefault();
 
-      var href = $(this).attr('href');
+    if (window.location.hash.indexOf('domain=') != -1) {
 
-      $('body > *').fadeOut(300, function(){
-        setTimeout(function(){
-          window.location.href = href;
-        }, 150);
+      var parentDomain = window.location.hash.replace('#domain=', '');
+      document.domain = parentDomain;
+      
+      $('.home #header .close, a[href="http://madebyfibb.com"]').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
       });
-    });
+
+    } else {
+
+      $('.home #header .close, a[href="http://madebyfibb.com"]').click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+
+        var href = $(this).attr('href');
+
+        $('body > *').fadeOut(300, function(){
+          setTimeout(function(){
+            window.location.href = href;
+          }, 150);
+        });
+      });
+
+    }
 
 
     $(window).scroll(checkScrollPos);
