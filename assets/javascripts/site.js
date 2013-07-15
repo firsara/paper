@@ -90,7 +90,7 @@
     var speed = 300;
 
     $('.posts .link, .posts .actions-outer .close').click(function(e){
-      if (appSize == 'mobile' || appSize == 'tablet') return true;
+      if ((appSize == 'mobile' || appSize == 'tablet') && screen.width < 980) return true;
 
       e.preventDefault();
       var article = $(this).parents('article:first');
