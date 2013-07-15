@@ -191,7 +191,7 @@
     });
 
 
-    $('.home #header .close').click(function(e){
+    $('.home #header .close, a[href="http://madebyfibb.com"]').click(function(e){
       e.preventDefault();
 
       var href = $(this).attr('href');
