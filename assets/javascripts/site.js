@@ -191,6 +191,19 @@
     });
 
 
+    $('.home #header .close').click(function(e){
+      e.preventDefault();
+
+      var href = $(this).attr('href');
+
+      $('body > *').fadeOut(300, function(){
+        setTimeout(function(){
+          window.location.href = href;
+        }, 150);
+      });
+    });
+
+
     $(window).scroll(checkScrollPos);
     resize();
   });
