@@ -30,7 +30,6 @@
         var height = commentsOffset - footerHeight;
         var index = $('article').index($(this));
 
-        console.log(index + ' | ' + count);
         if (index == count-1) {
           height = height + footerHeight;
         }
@@ -41,8 +40,6 @@
         var articleHeight = $(this).find('.wrapper').height();
         var top = $(this).find('.article-content').offset().top + $(this).find('.article-content').height() - app.helper.getScrollTop() - $(window).height();
         top = top + $(this).find('.comments-outer').height();
-
-        console.log(articleHeight + ' | ' + top);
 
         $(this).find('.comments-outer').css('bottom', Math.max(0, 0 - top));
 
