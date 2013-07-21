@@ -48,6 +48,7 @@
 				<?php endif; ?>
 				<time><a href="#comment-<?php comment_ID() ?>"><?php comment_date() ?> at <?php comment_time() ?></a></time>
 			</article>
+    </li>
 		<?php endif;
 	}
 
