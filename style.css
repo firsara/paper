@@ -4,5 +4,14 @@ Description:  <a href="http://madebyfibb.com">MADE BY FIBB</a>
 Version:      1.0
 Author:       Fabian Irsara and Bernd Baumgartner
 Author URI:   http://madebyfibb.com
-Tags:         fibb, made by fibb, clean, flat, responsive, fluid
+Tags:         dark, yellow, blue, green, white, flexible-width, one-column
 */
+
+.wp-caption {}
+.wp-caption-text {}
+.sticky {}
+.gallery-caption {}
+.bypostauthor {}
+.alignright {}
+.alignleft {}
+.aligncenter {}
