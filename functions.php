@@ -228,15 +228,15 @@ function fibb_fetch_responsive_images($content)
 			$size = getimagesize($src);
 
 			$sources = array();
-			$sources['wide'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=wide&quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['desktop'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=desktop&quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['tablet'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=tablet&quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['mobile'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=mobile&quality=75', 'width' => $size[0], 'height' => $size[1]);
+			$sources['wide'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=wide&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
+			$sources['desktop'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=desktop&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
+			$sources['tablet'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=tablet&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
+			$sources['mobile'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=mobile&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
 
-			$sources['wide-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=wide&quality=75&retina=true', 'width' => $size[0], 'height' => $size[1]);
-			$sources['desktop-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=desktop&quality=75&retina=true', 'width' => $size[0], 'height' => $size[1]);
-			$sources['tablet-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=tablet&quality=75&retina=true', 'width' => $size[0], 'height' => $size[1]);
-			$sources['mobile-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&type=mobile&quality=75&retina=true', 'width' => $size[0], 'height' => $size[1]);
+			$sources['wide-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=wide&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
+			$sources['desktop-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=desktop&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
+			$sources['tablet-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=tablet&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
+			$sources['mobile-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=mobile&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
 
 			$content = str_replace($result, '<span class="responsive-image"><noscript data-base="'.BLOGINFO_BASE_URL.'" data-src=\''.json_encode($sources).'\'>'.$result.'</noscript></span>', $content);
 		}
