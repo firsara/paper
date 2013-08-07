@@ -240,13 +240,6 @@ input[type="submit"] {
       z-index: 4;
     }
 
-    &:first-child {
-      .arrow-top,
-      .arrow-bottom {
-        display: none;
-      }
-    }
-
     h4,
     h5 {
       float: left;
@@ -259,6 +252,25 @@ input[type="submit"] {
       a {
         color: $background;
       }
+    }
+  }
+
+  ol > li:first-child {
+    .arrow-top,
+    .arrow-bottom {
+      display: none;
+    }
+  }
+
+  ol .children li {
+    padding-left: 50px;
+
+    .arrow {
+      left: 40px;
+    }
+
+    .arrow-bottom {
+      left: 38px;
     }
   }
 }

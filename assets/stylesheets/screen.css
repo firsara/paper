@@ -1700,9 +1700,6 @@ input[type="submit"] {
     border-top-color: #dbdbdb;
     top: -2px;
     z-index: 4; }
-  .comments li:first-child .arrow-top,
-  .comments li:first-child .arrow-bottom {
-    display: none; }
   .comments li h4,
   .comments li h5 {
     float: left;
@@ -1715,6 +1712,15 @@ input[type="submit"] {
     .comments li h5,
     .comments li h5 a {
       color: #2d2d2d; }
+.comments ol > li:first-child .arrow-top,
+.comments ol > li:first-child .arrow-bottom {
+  display: none; }
+.comments ol .children li {
+  padding-left: 50px; }
+  .comments ol .children li .arrow {
+    left: 40px; }
+  .comments ol .children li .arrow-bottom {
+    left: 38px; }
 
 .show-more {
   display: block;
