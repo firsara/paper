@@ -8,11 +8,13 @@
               <?php ob_start(); the_content(); $content = ob_get_contents(); ob_clean(); ?>
               <?php echo fibb_fetch_responsive_images($content); ?>
             </div>
+            <?php /*
             <?php if ( get_the_author_meta( 'description' ) ) : ?>
             <?php echo get_avatar( get_the_author_meta( 'user_email' ) ); ?>
             <h3>About <?php echo get_the_author() ; ?></h3>
             <?php the_author_meta( 'description' ); ?>
             <?php endif; ?>
+            */ ?>
           </div>
         </div>
       </div>
@@ -36,6 +38,8 @@
                   <a target="_blank" href="https://twitter.com/share?url=<?php the_permalink(); ?>" class="twitter share-element popup">twitter</a>
                 </span>
               </span>
+              
+              <p class="small author">Written by <?php echo get_the_author() ; ?></p>
 
               <?php /*
               <div class="action float-right like">

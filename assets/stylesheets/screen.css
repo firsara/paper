@@ -1306,6 +1306,18 @@ article {
       height: auto;
       display: block;
       overflow: visible; }
+  article .author {
+    display: inline;
+    margin-top: 0;
+    float: right;
+    font-size: 0.75em;
+    margin-bottom: 0;
+    margin-top: 0.25em; }
+    @media only screen and (max-width: 767px) {
+      article .author {
+        margin-top: 2em;
+        float: none;
+        display: block; } }
 
 .article-content .actions-outer {
   padding-top: 0;
