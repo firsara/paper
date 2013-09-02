@@ -80,6 +80,12 @@ function crop_image($path = '', $type = '', $retina = false)
     break;
   }
 
+  if ($retina == 'true')
+  {
+    $width = $width * 2;
+    $height = $height * 2;
+  }
+
   $new_filename = str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $path));
 
   $new_filename_path = ROOT.str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $filename));
@@ -97,12 +103,6 @@ function crop_image($path = '', $type = '', $retina = false)
     @mkdir($dir, 0777, true);
 
     $editor = wp_get_image_editor( ROOT.$path );
-
-    if ($retina == 'true')
-    {
-      $width = $width * 2;
-      $height = $height * 2;
-    }
 
     $editor->resize( $width, $height, false );
     $editor->set_quality($_GET['quality']);
