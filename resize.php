@@ -31,8 +31,8 @@ function crop_image($path = '', $type = '', $retina = false)
 
   $size = getimagesize(ROOT.$filename);
 
-  $image_width = round($size[0] / 1.5);
-  $image_height = round($size[1] / 1.5);
+  $image_width = round($size[0]);
+  $image_height = round($size[1]);
 
   $ratio = $size[0] / $size[1];
   
@@ -41,25 +41,43 @@ function crop_image($path = '', $type = '', $retina = false)
     case 'wide':
       $width = $image_width;
       $height = $image_height;
+
+      if ($width > 1097)
+      {
+        $width = 1097;
+        $height = $width * $ratio;
+      }
     break;
     case 'desktop':
       $width = round($image_width / 4 * 3);
       $height = round($image_height / 4 * 3);
+
+      if ($width > 1097 / 4 * 3)
+      {
+        $width = round(1097 / 4 * 3);
+        $height = $width * $ratio;
+      }
     break;
     case 'tablet':
-      $width = round($image_width / 4 * 2);
-      $height = round($image_height / 4 * 2);
+      $width = round($image_width / 4 * 3);
+      $height = round($image_height / 4 * 3);
+
+      if ($width > 1097 / 4 * 3)
+      {
+        $width = round(1097 / 4 * 3);
+        $height = $width * $ratio;
+      }
     break;
     case 'mobile':
-      $width = round($image_width / 4);
-      $height = round($image_height / 4);
-    break;
-  }
+      $width = round($image_width / 4 * 1.5);
+      $height = round($image_height / 4 * 1.5);
 
-  if ($width > 1097)
-  {
-    $width = 1097;
-    $height = $width * $ratio;
+      if ($width > 1097 / 4 * 1.5)
+      {
+        $width = round(1097 / 4 * 1.5);
+        $height = $width * $ratio;
+      }
+    break;
   }
 
   $new_filename = str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $path));
