@@ -29,8 +29,6 @@ function crop_image($path = '', $type = '', $retina = false)
 
   $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-
-  $retina = true;
   $size = getimagesize(ROOT.$filename);
 
   $image_width = round($size[0] / 1.5);
