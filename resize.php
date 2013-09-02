@@ -33,6 +33,8 @@ function crop_image($path = '', $type = '', $retina = false)
 
   $image_width = round($size[0] / 1.5);
   $image_height = round($size[1] / 1.5);
+
+  $ratio = $size[0] / $size[1];
   
   switch ($type)
   {
@@ -52,6 +54,12 @@ function crop_image($path = '', $type = '', $retina = false)
       $width = round($image_width / 4);
       $height = round($image_height / 4);
     break;
+  }
+
+  if ($width > 1097)
+  {
+    $width = 1097;
+    $height = $width * $ratio;
   }
 
   $new_filename = str_replace('uploads/', 'uploads/cache/', str_replace('.'.$ext, '_w'.$width.'_h'.$height.'.'.$ext, $path));
