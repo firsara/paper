@@ -1313,6 +1313,8 @@ article {
     font-size: 0.75em;
     margin-bottom: 0;
     margin-top: 0.25em; }
+    article .author a {
+      font-size: 1em; }
     @media only screen and (max-width: 767px) {
       article .author {
         margin-top: 2em;

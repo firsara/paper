@@ -425,6 +425,10 @@ article {
     @include respond-to(wide) {
     }
 
+    a {
+      font-size: 1em;
+    }
+
     @include respond-to(mobile) {
       margin-top: 2em;
       float: none;

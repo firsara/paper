@@ -38,8 +38,8 @@
                   <a target="_blank" href="https://twitter.com/share?url=<?php the_permalink(); ?>" class="twitter share-element popup">twitter</a>
                 </span>
               </span>
-              
-              <p class="small author">Written by <?php echo get_the_author() ; ?></p>
+
+              <p class="small author">Written by <a href="mailto:<?php echo get_the_author_meta( 'user_email' ); ?>?subject=<?php echo get_the_title(); ?>"><?php echo get_the_author() ; ?></a></p>
 
               <?php /*
               <div class="action float-right like">
