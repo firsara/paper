@@ -228,10 +228,10 @@ function fibb_fetch_responsive_images($content)
 			$size = getimagesize($src);
 
 			$sources = array();
-			$sources['wide'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=wide&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['desktop'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=desktop&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['tablet'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=tablet&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
-			$sources['mobile'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=mobile&amp;quality=75', 'width' => $size[0], 'height' => $size[1]);
+			$sources['wide'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=wide&amp;quality=90', 'width' => $size[0], 'height' => $size[1]);
+			$sources['desktop'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=desktop&amp;quality=90', 'width' => $size[0], 'height' => $size[1]);
+			$sources['tablet'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=tablet&amp;quality=90', 'width' => $size[0], 'height' => $size[1]);
+			$sources['mobile'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=mobile&amp;quality=90', 'width' => $size[0], 'height' => $size[1]);
 
 			$sources['wide-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=wide&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
 			$sources['desktop-retina'] = array('src' => BLOGINFO_BASE_URL.'resize.php?file='.$src.'&amp;type=desktop&amp;quality=75&amp;retina=true', 'width' => $size[0], 'height' => $size[1]);
