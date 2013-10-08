@@ -637,6 +637,12 @@ article {
   p {
     //margin-bottom: 1em;
     margin-bottom: 1.5em;
+
+    &:first-child {
+      img.size-large, img.size-full, .responsive-image img {
+        margin-top: 0;
+      }
+    }
   }
 
   ul {

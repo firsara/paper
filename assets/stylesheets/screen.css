@@ -1445,6 +1445,8 @@ article {
     font-weight: 300; }
   .content p {
     margin-bottom: 1.5em; }
+    .content p:first-child img.size-large, .content p:first-child img.size-full, .content p:first-child .responsive-image img {
+      margin-top: 0; }
   .content ul {
     list-style: disc;
     padding-left: 1.1em;
