@@ -1,0 +1,37 @@
+.filter {
+  position: relative;
+  z-index: 100;
+  padding: 10px 0 10px;
+  background: #ebebeb;
+
+  .filter-item {
+    color: $background;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 0;
+    display: block;
+  }
+
+  .label {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 0;
+  }
+
+  &.filtered {
+    .filter-item {
+      color: lighten($background, 50%);
+    }
+
+    .current {
+      color: $background;
+    }
+  }
+
+  @include respond-to(mobile) {
+    .filter-list {
+      display: none;
+    }
+  }
+}
+

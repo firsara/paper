@@ -1053,6 +1053,29 @@ body.admin-bar #header {
       margin-bottom: 0;
       margin-top: 59px; } }
 
+.filter {
+  position: relative;
+  z-index: 100;
+  padding: 10px 0 10px;
+  background: #ebebeb; }
+  .filter .filter-item {
+    color: #2d2d2d;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 0;
+    display: block; }
+  .filter .label {
+    font-size: 25px;
+    font-weight: bold;
+    padding: 20px 0; }
+  .filter.filtered .filter-item {
+    color: #adadad; }
+  .filter.filtered .current {
+    color: #2d2d2d; }
+  @media only screen and (max-width: 767px) {
+    .filter .filter-list {
+      display: none; } }
+
 article {
   position: relative; }
   article .text > :last-child {
