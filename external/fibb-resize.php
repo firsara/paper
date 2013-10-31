@@ -73,7 +73,7 @@ function resize_image($path = '', $type = '', $retina = false, $quality = 90)
 
   $recreate = false;
 
-  if (file_exists($new_filename_path) === false || @filemtime($new_filename_path) - time() < -3600)
+  if (file_exists($new_filename_path) === false || @filemtime($new_filename_path) - time() < (0 - 1 * WEEK))
   {
     $recreate = true;
   }

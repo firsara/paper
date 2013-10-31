@@ -251,7 +251,11 @@ function fibb_comment_form( $args = array(), $post_id = null ) {
 
 define('BLOGINFO_BASE_URL', get_bloginfo('template_url').'/');
 define('MAIN_URL', get_site_url().'/');
-
+define('MINUTE', 60);
+define('HOUR', 60 * MINUTE);
+define('DAY', 24 * HOUR);
+define('WEEK', 7 * DAY);
+define('MONTH', 30.4368499 * DAY);
 
 function fibb_fetch_responsive_images($content)
 {
